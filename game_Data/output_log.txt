@@ -1,0 +1,21 @@
+Initialize engine version: 4.3.4f1 (e444f76e01cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1172]
+    Renderer: ATI Radeon HD 5450
+    Vendor:   ATI
+    VRAM:     1139 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Hieu\Documents\New Unity Project 1\game_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Hieu\Documents\New Unity Project 1\game_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Hieu\Documents\New Unity Project 1\game_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Hieu\Documents\New Unity Project 1\game_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+- Completed reload, in  0.056 seconds
+desktop: 1360x768 60Hz; virtual: 1360x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Profiler is only supported with Pro License
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Profiler/ProfilerConnection.cpp Line: 209)
+
