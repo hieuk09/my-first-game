@@ -1,6 +1,5 @@
 ﻿#pragma strict
 
-var lineRenderer: LineRenderer;
 var startPos: Vector3;
 var endPos: Vector3;
 var state: int;
@@ -10,36 +9,33 @@ var STATES = {
 	'finish': 3
 };
 
-function Start () {
-	var lineObject = new GameObject("Line");
-	lineRenderer = lineObject.AddComponent(LineRenderer);
-	lineRenderer.SetColors(Color.yellow, Color.red);
-	lineRenderer.SetWidth(0.2, 0.2);
+function Start () {	
 	state = STATES['start'];
 }
 
-function Update () {	
-	
+function Update () {
+
 }
 
-function OnMouseDown() {	
+function OnMouseDown() {
 	var mousePos = Input.mousePosition;
 	mousePos.z = 1.0f;
 
 	switch (state) {
 		case STATES['start']:
-			endPos = Camera.main.ScreenToWorldPoint(mousePos);
-			lineRenderer.SetPosition(1, endPos);
+			startPos = Camera.main.ScreenToWorldPoint(mousePos);
+	
 			state = STATES['end'];
 			break;
 		case STATES['end']:
-			lineRenderer.SetVertexCount(0);
-			state = STATES['finish'];
-			break;
-		case STATES['finish']:
+			var lineObject = new GameObject("Line");
+			var lineRenderer = lineObject.AddComponent(LineRenderer);
+			lineRenderer.SetColors(Color.yellow, Color.red);
+			lineRenderer.SetWidth(0.2, 0.2);
 			lineRenderer.SetVertexCount(2);
-			startPos = Camera.main.ScreenToWorldPoint(mousePos);
-			lineRenderer.SetPosition(0, startPos);
+			lineRenderer.SetPosition(0, startPos);		
+			endPos = Camera.main.ScreenToWorldPoint(mousePos);
+			lineRenderer.SetPosition(1, endPos);
 			state = STATES['start'];
 			break;
 	}
