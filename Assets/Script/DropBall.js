@@ -14,3 +14,7 @@ function OnMouseDown() {
 		ball.Sleep();
 	}
 }
+
+function OnCollisionEnter2D(collision) {
+	Debug.Log(collision);
+}

@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\Script\DrawLine.js" />
      <Compile Include="Assets\Script\DropBall.js" />
-     <Compile Include="Assets\Script\Rope.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

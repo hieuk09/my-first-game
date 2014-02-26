@@ -2,30 +2,32 @@
 
 var startPos: Vector3;
 var endPos: Vector3;
-var lineRenderer: LineRenderer;
-
-function Start () {	
-}
-
-function Update () {
-
-}
+var cube : GameObject;
+var DEFAULT_Z = 10.0f;
 
 function OnMouseDown() {
 	var mousePos = Input.mousePosition;
-	mousePos.z = 1.0f;
-	var lineObject = new GameObject("Line");
-	lineRenderer = lineObject.AddComponent(LineRenderer);
-	lineRenderer.SetColors(Color.yellow, Color.red);
-	lineRenderer.SetWidth(0.2, 0.2);
-	startPos = Camera.main.ScreenToWorldPoint(mousePos);
+	mousePos.z = DEFAULT_Z;
+	startPos = Camera.main.ScreenToWorldPoint(mousePos);	
+	cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+	cube.Destroy(cube.GetComponent('BoxCollider'));	
 }
 
 function OnMouseDrag() {
 	var mousePos = Input.mousePosition;
-	mousePos.z = 1.0f;	
-	lineRenderer.SetVertexCount(2);
-	lineRenderer.SetPosition(0, startPos);		
+	mousePos.z = DEFAULT_Z;	
 	endPos = Camera.main.ScreenToWorldPoint(mousePos);
-	lineRenderer.SetPosition(1, endPos);
+	
+	cube.transform.position = (startPos + endPos) / 2;
+	var between = endPos - startPos;
+	var distance = between.magnitude;
+	cube.transform.localScale = Vector3(1, 0.1, distance);
+	cube.transform.LookAt(endPos);	
+}
+
+function OnMouseUp() {
+	cube.AddComponent('Rigidbody2D');	
+	cube.AddComponent('BoxCollider2D');
+	var rigidbody2D = cube.rigidbody2D;
+	rigidbody2D.gravityScale = 0;
 }
