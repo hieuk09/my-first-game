@@ -1,7 +1,7 @@
 ﻿#pragma strict
 import System.IO;
 
-var path = 'save.txt'
+var path = 'save.txt';
 
 class SaveFile {
     function save() {
@@ -13,8 +13,8 @@ class SaveFile {
     };
 
     function load() {
-        sr = new File.OpenText(path);
-        input = "";
+        var sr = new File.OpenText(path);
+        var input = "";
 
         while (true) {
             input = sr.ReadLine();

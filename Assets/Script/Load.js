@@ -2,5 +2,5 @@
 
 function OnMouseDown() {
 	var saveFile = new SaveFile();
-	saveFile.save();
+	saveFile.load();
 }
