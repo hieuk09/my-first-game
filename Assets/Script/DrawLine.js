@@ -2,12 +2,17 @@
 
 var startPos: Vector3;
 var endPos: Vector3;
-var cube : GameObject;
-var DEFAULT_Z = 10.0f;
+var cube: GameObject;
+var audioSource: AudioSource;
+var DEFAULT_Z = 12.0f;
+var numberOfLines = 0;
+var maxLength = 20;
+var allSound = 260;
 
 function OnMouseDown() {
 	var mousePos = Input.mousePosition;
 	mousePos.z = DEFAULT_Z;
+	numberOfLines++;
 	startPos = Camera.main.ScreenToWorldPoint(mousePos);	
 	cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 	cube.Destroy(cube.GetComponent('BoxCollider'));	
@@ -26,8 +31,17 @@ function OnMouseDrag() {
 }
 
 function OnMouseUp() {
-	cube.AddComponent('Rigidbody2D');	
-	cube.AddComponent('BoxCollider2D');
-	var rigidbody2D = cube.rigidbody2D;
-	rigidbody2D.gravityScale = 0;
+	cube.AddComponent('BoxCollider2D');	
+
+	var distance = (endPos - startPos).magnitude;
+	var soundNumber = Mathf.Floor((distance / maxLength) * allSound);
+
+	if (soundNumber > allSound) {
+		soundNumber = allSound;
+	} else if (soundNumber <= 0) {
+		soundNumber = 1;
+	}
+
+	audioSource = cube.AddComponent('AudioSource');
+	audioSource.clip = Resources.Load('Sound/Piano(' + soundNumber.ToString() + ')');
 }

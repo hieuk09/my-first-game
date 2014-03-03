@@ -15,6 +15,7 @@ function OnMouseDown() {
 	}
 }
 
-function OnCollisionEnter2D(collision) {
-	Debug.Log(collision);
+function OnCollisionEnter2D(collision: Collision2D) {
+	var audioSource: AudioSource = collision.gameObject.GetComponent('AudioSource');
+	audioSource.PlayOneShot(audioSource.clip);
 }
