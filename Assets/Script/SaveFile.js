@@ -56,31 +56,31 @@ class SaveFile {
 	};
 
 	function stringToVector(string: String) {
-    var newString = this.removeParentheses(string);
-    var numberStrings = newString.Split(','[0]);
+  	var newString = this.removeParentheses(string);
+  	var numberStrings = newString.Split(','[0]);
 
-    var x = System.Convert.ToDecimal(numberStrings[0]);
-    var y = System.Convert.ToDecimal(numberStrings[1]);
-    var z = System.Convert.ToDecimal(numberStrings[2]);
-    var returnvector3 = Vector3(x, y, z);
+  	var x = System.Convert.ToDecimal(numberStrings[0]);
+  	var y = System.Convert.ToDecimal(numberStrings[1]);
+  	var z = System.Convert.ToDecimal(numberStrings[2]);
+  	var returnvector3 = Vector3(x, y, z);
 
   	return returnvector3;
 	};
 
   function stringToQuaternion(string: String) {
-    var newString = this.removeParentheses(string);
-    var numberStrings = newString.Split(','[0]);
+  	var newString = this.removeParentheses(string);
+  	var numberStrings = newString.Split(','[0]);
 
-    var x = System.Convert.ToDecimal(numberStrings[0]);
-    var y = System.Convert.ToDecimal(numberStrings[1]);
-    var z = System.Convert.ToDecimal(numberStrings[2]);
-    var w = System.Convert.ToDecimal(numberStrings[3]);
-    var returnQuarternion = Quaternion(x, y, z, w);
+  	var x = System.Convert.ToDecimal(numberStrings[0]);
+  	var y = System.Convert.ToDecimal(numberStrings[1]);
+  	var z = System.Convert.ToDecimal(numberStrings[2]);
+  	var w = System.Convert.ToDecimal(numberStrings[3]);
+  	var returnQuarternion = Quaternion(x, y, z, w);
 
-    return returnQuarternion;
+  	return returnQuarternion;
   };
 
   function removeParentheses(string: String) {
-    return string.Replace(')', '').Replace('(', '');
+	 return string.Replace(')', '').Replace('(', '');
   }
 }

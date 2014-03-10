@@ -1,10 +1,13 @@
 ﻿#pragma strict
 
 function OnMouseDown() {
+  StaticVars.isLoaded = true;
   Application.LoadLevel(Application.loadedLevel);
 }
 
 function OnLevelWasLoaded() {
-  var saveFile = new SaveFile();
-  saveFile.load();
+  if (StaticVars.isLoaded) {
+    var saveFile = new SaveFile();
+    saveFile.load();
+  }
 }
