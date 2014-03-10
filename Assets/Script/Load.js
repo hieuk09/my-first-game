@@ -1,6 +1,10 @@
 ﻿#pragma strict
 
 function OnMouseDown() {
-	var saveFile = new SaveFile();
-	saveFile.load();
+  Application.LoadLevel(Application.loadedLevel);
+}
+
+function OnLevelWasLoaded() {
+  var saveFile = new SaveFile();
+  saveFile.load();
 }

@@ -25,7 +25,6 @@ class SaveFile {
 		var maxLength = 20;
 		var allSound = 260;
 
-		Application.LoadLevel(Application.loadedLevel);
 		while (true) {
 			input = sr.ReadLine();
       if (input == null) { break; }
@@ -54,7 +53,6 @@ class SaveFile {
 			audioSource.clip = Resources.Load('Sound/Piano(' + soundNumber.ToString() + ')');
 		}
 		sr.Close();
-    Debug.Log(cube);
 	};
 
 	function stringToVector(string: String) {
